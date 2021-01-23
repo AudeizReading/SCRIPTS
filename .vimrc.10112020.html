@@ -1,0 +1,193 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/html4/strict.dtd">
+<html>
+<head>
+<meta http-equiv="content-type" content="text/html; charset=UTF-8">
+<title>~/.vimrc.html</title>
+<meta name="Generator" content="Vim/8.1">
+<meta name="plugin-version" content="vim8.1_v1">
+<meta name="syntax" content="vim">
+<meta name="settings" content="number_lines,use_css,pre_wrap,no_foldcolumn,expand_tabs,line_ids,prevent_copy=">
+<meta name="colorscheme" content="none">
+<style type="text/css">
+<!--
+pre { white-space: pre-wrap; font-family: monospace; color: #ffffff; background-color: #000000; }
+body { font-family: monospace; color: #ffffff; background-color: #000000; }
+* { font-size: 1em; }
+.LineNr { color: #ffff00; }
+.Comment { color: #00ffff; }
+.Constant { color: #ff40ff; }
+.Special { color: #ffd7d7; }
+.Identifier { color: #00ffff; font-weight: bold; }
+.Statement { color: #ffff00; }
+.PreProc { color: #5fd7ff; }
+.Type { color: #87ffaf; }
+-->
+</style>
+
+<script type='text/javascript'>
+<!--
+
+/* function to open any folds containing a jumped-to line before jumping to it */
+function JumpToLine()
+{
+  var lineNum;
+  lineNum = window.location.hash;
+  lineNum = lineNum.substr(1); /* strip off '#' */
+
+  if (lineNum.indexOf('L') == -1) {
+    lineNum = 'L'+lineNum;
+  }
+  var lineElem = document.getElementById(lineNum);
+  /* Always jump to new location even if the line was hidden inside a fold, or
+   * we corrected the raw number to a line ID.
+   */
+  if (lineElem) {
+    lineElem.scrollIntoView(true);
+  }
+  return true;
+}
+if ('onhashchange' in window) {
+  window.onhashchange = JumpToLine;
+}
+
+-->
+</script>
+</head>
+<body onload='JumpToLine();'>
+<pre id='vimCodeElement'>
+<span id="L1" class="LineNr">  1 </span><span class="Comment">&quot; All system-wide defaults are set in $VIMRUNTIME/debian.vim and sourced by</span>
+<span id="L2" class="LineNr">  2 </span><span class="Comment">&quot; the call to :runtime you can find below.  If you wish to change any of those</span>
+<span id="L3" class="LineNr">  3 </span><span class="Comment">&quot; settings, you should do it in this file (/etc/vim/vimrc), since debian.vim</span>
+<span id="L4" class="LineNr">  4 </span><span class="Comment">&quot; will be overwritten everytime an upgrade of the vim packages is performed.</span>
+<span id="L5" class="LineNr">  5 </span><span class="Comment">&quot; It is recommended to make changes after sourcing debian.vim since it alters</span>
+<span id="L6" class="LineNr">  6 </span><span class="Comment">&quot; the value of the 'compatible' option.</span>
+<span id="L7" class="LineNr">  7 </span>
+<span id="L8" class="LineNr">  8 </span><span class="Statement">runtime</span><span class="Statement">!</span> debian<span class="Statement">.</span><span class="Statement">vim</span>
+<span id="L9" class="LineNr">  9 </span>
+<span id="L10" class="LineNr"> 10 </span><span class="Comment">&quot; Vim will load $VIMRUNTIME/defaults.vim if the user does not have a vimrc.</span>
+<span id="L11" class="LineNr"> 11 </span><span class="Comment">&quot; This happens after /etc/vim/vimrc(.local) are loaded, so it will override</span>
+<span id="L12" class="LineNr"> 12 </span><span class="Comment">&quot; any settings in these files.</span>
+<span id="L13" class="LineNr"> 13 </span><span class="Comment">&quot; If you don't want that to happen, uncomment the below line to prevent</span>
+<span id="L14" class="LineNr"> 14 </span><span class="Comment">&quot; defaults.vim from being loaded.</span>
+<span id="L15" class="LineNr"> 15 </span><span class="Comment">&quot; let g:skip_defaults_vim = 1</span>
+<span id="L16" class="LineNr"> 16 </span>
+<span id="L17" class="LineNr"> 17 </span><span class="Comment">&quot; Uncomment the next line to make Vim more Vi-compatible</span>
+<span id="L18" class="LineNr"> 18 </span><span class="Comment">&quot;</span> <span class="PreProc">NOTE:</span><span class="Comment"> debian.vim sets 'nocompatible'.  Setting 'compatible' changes numerous</span>
+<span id="L19" class="LineNr"> 19 </span><span class="Comment">&quot; options, so any other options should be set AFTER setting 'compatible'.</span>
+<span id="L20" class="LineNr"> 20 </span><span class="Comment">&quot;set compatible</span>
+<span id="L21" class="LineNr"> 21 </span>
+<span id="L22" class="LineNr"> 22 </span><span class="Comment">&quot; Vim5 and later versions support syntax highlighting. Uncommenting the next</span>
+<span id="L23" class="LineNr"> 23 </span><span class="Comment">&quot; line enables syntax highlighting by default.</span>
+<span id="L24" class="LineNr"> 24 </span><span class="Statement">if</span> <span class="Identifier">has</span><span class="Special">(</span><span class="Constant">&quot;syntax</span><span class="Constant">&quot;</span><span class="Special">)</span>
+<span id="L25" class="LineNr"> 25 </span>  <span class="Statement">syntax</span> <span class="Type">on</span>
+<span id="L26" class="LineNr"> 26 </span><span class="Statement">endif</span>
+<span id="L27" class="LineNr"> 27 </span>
+<span id="L28" class="LineNr"> 28 </span><span class="Comment">&quot; If using a dark background within the editing area and syntax highlighting</span>
+<span id="L29" class="LineNr"> 29 </span><span class="Comment">&quot; turn on this option as well</span>
+<span id="L30" class="LineNr"> 30 </span><span class="Statement">set</span> <span class="PreProc">background</span>=dark
+<span id="L31" class="LineNr"> 31 </span>
+<span id="L32" class="LineNr"> 32 </span><span class="Comment">&quot; Uncomment the following to have Vim jump to the last position when</span>
+<span id="L33" class="LineNr"> 33 </span><span class="Comment">&quot; reopening a file</span>
+<span id="L34" class="LineNr"> 34 </span><span class="Statement">au</span> <span class="Type">BufReadPost</span> * <span class="Statement">if</span> <span class="Identifier">line</span><span class="Special">(</span><span class="Constant">&quot;'\&quot;</span><span class="Constant">&quot;</span><span class="Special">)</span> <span class="Statement">&gt;</span> <span class="Constant">1</span> <span class="Statement">&amp;&amp;</span> <span class="Identifier">line</span><span class="Special">(</span><span class="Constant">&quot;'\&quot;</span><span class="Constant">&quot;</span><span class="Special">)</span> <span class="Statement">&lt;=</span> <span class="Identifier">line</span><span class="Special">(</span><span class="Constant">&quot;$</span><span class="Constant">&quot;</span><span class="Special">)</span> | exe <span class="Constant">&quot;normal! g'\&quot;</span><span class="Constant">&quot;</span> | <span class="Statement">endif</span>
+<span id="L35" class="LineNr"> 35 </span><span class="Comment">&quot; Rouvrir un fichier à la ligne `n`</span>
+<span id="L36" class="LineNr"> 36 </span><span class="Comment">&quot; vim +n file</span>
+<span id="L37" class="LineNr"> 37 </span><span class="Comment">&quot; Mettre une marque dans un fichier</span>
+<span id="L38" class="LineNr"> 38 </span><span class="Comment">&quot; En mode normal, sous le mot : ma (a ou une autre lettre si a déjà pris)</span>
+<span id="L39" class="LineNr"> 39 </span><span class="Comment">&quot; Se postionner sur la marque (mode normal)</span>
+<span id="L40" class="LineNr"> 40 </span><span class="Comment">&quot; 'a</span>
+<span id="L41" class="LineNr"> 41 </span>
+<span id="L42" class="LineNr"> 42 </span><span class="Comment">&quot; Uncomment the following to have Vim load indentation rules and plugins</span>
+<span id="L43" class="LineNr"> 43 </span><span class="Comment">&quot; according to the detected filetype.</span>
+<span id="L44" class="LineNr"> 44 </span><span class="Statement">filetype</span> <span class="Type">plugin</span> <span class="Type">indent</span> <span class="Type">on</span>
+<span id="L45" class="LineNr"> 45 </span>
+<span id="L46" class="LineNr"> 46 </span><span class="Comment">&quot; Source a global configuration file if available</span>
+<span id="L47" class="LineNr"> 47 </span><span class="Statement">if</span> <span class="Identifier">filereadable</span><span class="Special">(</span><span class="Constant">&quot;/etc/vim/vimrc.local</span><span class="Constant">&quot;</span><span class="Special">)</span>
+<span id="L48" class="LineNr"> 48 </span>  <span class="Statement">source</span> /etc/<span class="Statement">vim</span>/vimrc<span class="Statement">.</span>local
+<span id="L49" class="LineNr"> 49 </span><span class="Statement">endif</span>
+<span id="L50" class="LineNr"> 50 </span>
+<span id="L51" class="LineNr"> 51 </span><span class="Comment">&quot; Options activées personnellement</span>
+<span id="L52" class="LineNr"> 52 </span><span class="Comment">&quot; Affichage des numéros de ligne</span>
+<span id="L53" class="LineNr"> 53 </span><span class="Statement">set</span> <span class="PreProc">nu</span>
+<span id="L54" class="LineNr"> 54 </span><span class="Comment">&quot; Affichage commande en cours</span>
+<span id="L55" class="LineNr"> 55 </span><span class="Statement">set</span> <span class="PreProc">showcmd</span>
+<span id="L56" class="LineNr"> 56 </span><span class="Comment">&quot; Affichage du mode VIM</span>
+<span id="L57" class="LineNr"> 57 </span><span class="Statement">set</span> <span class="PreProc">showmode</span>
+<span id="L58" class="LineNr"> 58 </span><span class="Comment">&quot; Utilisation du clignotement visuel au lieu du bip</span>
+<span id="L59" class="LineNr"> 59 </span><span class="Statement">set</span> <span class="PreProc">visualbell</span>
+<span id="L60" class="LineNr"> 60 </span><span class="Comment">&quot; Affichage crochets/parenthèses/accolades correspondant</span>
+<span id="L61" class="LineNr"> 61 </span><span class="Statement">set</span> <span class="PreProc">showmatch</span>
+<span id="L62" class="LineNr"> 62 </span><span class="Comment">&quot; Affiche une nouvelle fenêtre en dessous de l'ancienne (par exemple qd on apl l'aide)</span>
+<span id="L63" class="LineNr"> 63 </span><span class="Statement">set</span> <span class="PreProc">splitbelow</span>
+<span id="L64" class="LineNr"> 64 </span><span class="Statement">set</span> <span class="PreProc">mouse</span>=a     <span class="Comment">&quot; Enable mouse usage (all modes)</span>
+<span id="L65" class="LineNr"> 65 </span>
+<span id="L66" class="LineNr"> 66 </span><span class="Comment">&quot; Configuration de la barre de statut (set ruler n'a plus lieu d'être)</span>
+<span id="L67" class="LineNr"> 67 </span><span class="Statement">set</span> <span class="PreProc">laststatus</span>=2 <span class="Comment">&quot; Affiche toujours la barre d'état, 0=jamais, 1=seulement qd 2 écrans, 2=toujours</span>
+<span id="L68" class="LineNr"> 68 </span><span class="Statement">set</span> <span class="PreProc">statusline</span>=%&lt;%F\ %h%m%r\ %y\ %a%=%-20.(%l<span class="Statement">,</span>%c%V%)\ %p\ %%\  <span class="Comment">&quot; Affiche filepath, si aide/modif ou readonly, type de fichier, arguments du fichier, = sépare l'alignement dans la barre, - aligne à gauche sauf si la taille mini est inf à celle indiquée alors aligne à droite, donne nb lignes, nb colonnes+virtuelles, % dans le fichier</span>
+<span id="L69" class="LineNr"> 69 </span><span class="Statement">highlight</span> <span class="Type">StatusLine</span> <span class="Type">term</span>=<span class="PreProc">reverse</span>,<span class="PreProc">bold</span> <span class="Type">cterm</span>=<span class="PreProc">reverse</span>,<span class="PreProc">bold</span> <span class="Type">ctermfg</span>=<span class="Constant">15</span> <span class="Type">ctermbg</span>=<span class="Constant">0</span> <span class="Type">gui</span>=<span class="PreProc">reverse</span>,<span class="PreProc">bold</span>
+<span id="L70" class="LineNr"> 70 </span>
+<span id="L71" class="LineNr"> 71 </span><span class="Comment">&quot; Taille max d'une ligne </span>
+<span id="L72" class="LineNr"> 72 </span><span class="Statement">set</span> <span class="PreProc">textwidth</span>=80
+<span id="L73" class="LineNr"> 73 </span><span class="Comment">&quot; Coupe les lignes au dernier mots et pas au caractères (requière Wrap Lines actif par défaut)</span>
+<span id="L74" class="LineNr"> 74 </span><span class="Statement">set</span> <span class="PreProc">wrap</span> <span class="Comment">&quot; Autorise coupure des lignes en affichage</span>
+<span id="L75" class="LineNr"> 75 </span><span class="Statement">set</span> <span class="PreProc">linebreak</span>
+<span id="L76" class="LineNr"> 76 </span>
+<span id="L77" class="LineNr"> 77 </span><span class="Comment">&quot; Autoindentation des lignes</span>
+<span id="L78" class="LineNr"> 78 </span><span class="Statement">set</span> <span class="PreProc">autoindent</span>
+<span id="L79" class="LineNr"> 79 </span><span class="Statement">set</span> <span class="PreProc">smartindent</span> <span class="Comment">&quot; si smartindent activé, alors activer autoindent, si cindent activé = smartindent sans effet</span>
+<span id="L80" class="LineNr"> 80 </span><span class="Statement">set</span> <span class="PreProc">copyindent</span> <span class="Comment">&quot; copie l'indentation précédente en autoindentation</span>
+<span id="L81" class="LineNr"> 81 </span><span class="Comment">&quot;set expandtab &quot; expand tabs by default (overloadable per file type) remplace les tabulations par des espaces </span>
+<span id="L82" class="LineNr"> 82 </span><span class="Statement">set</span> <span class="PreProc">shiftround</span> <span class="Comment">&quot; utilise des multiples de shiftwidth quand indentation avec &lt; ou &gt;</span>
+<span id="L83" class="LineNr"> 83 </span><span class="Statement">set</span> <span class="PreProc">smarttab</span> <span class="Comment">&quot;insert tabs on the start of a line according to shiftwidth, not tabstop </span>
+<span id="L84" class="LineNr"> 84 </span><span class="Comment">&quot; Définition taille auto-indentation</span>
+<span id="L85" class="LineNr"> 85 </span><span class="Statement">set</span> <span class="PreProc">shiftwidth</span>=4 <span class="Comment">&quot; nombre d'espaces à utiliser pour chaque pas d'auto-indentation, valeur utilisée par smarttab</span>
+<span id="L86" class="LineNr"> 86 </span><span class="Comment">&quot; Taille d'une tabulation</span>
+<span id="L87" class="LineNr"> 87 </span><span class="Statement">set</span> <span class="PreProc">tabstop</span>=4
+<span id="L88" class="LineNr"> 88 </span><span class="Statement">set</span> <span class="PreProc">softtabstop</span>=4 <span class="Comment">&quot; when hitting &lt;BS&gt;, pretend like a tab is removed even if spaces</span>
+<span id="L89" class="LineNr"> 89 </span>
+<span id="L90" class="LineNr"> 90 </span><span class="Comment">&quot; auto-format fichier .c : utilise le cindent, formatoptions permet d'utiliser</span>
+<span id="L91" class="LineNr"> 91 </span><span class="Comment">&quot; le textwidth (sinon j'ai des soucis avec en C, ne se coupe pas à la col 80) et</span>
+<span id="L92" class="LineNr"> 92 </span><span class="Comment">&quot; formatte les commentaires C de la façon suivante </span>
+<span id="L93" class="LineNr"> 93 </span><span class="Comment">&quot; /* </span>
+<span id="L94" class="LineNr"> 94 </span><span class="Comment">&quot; ** Ceci est un commentaire C</span>
+<span id="L95" class="LineNr"> 95 </span><span class="Comment">&quot; */</span>
+<span id="L96" class="LineNr"> 96 </span><span class="Comment">&quot; Pour la dernière ligne de commentaire, comme il ne sait pas encore que c'est</span>
+<span id="L97" class="LineNr"> 97 </span><span class="Comment">&quot; la dernière ligne, elle commencera par **, le simple fait de taper / annule **</span>
+<span id="L98" class="LineNr"> 98 </span><span class="Comment">&quot; le commentaire se terminera alors</span>
+<span id="L99" class="LineNr"> 99 </span><span class="Comment">&quot;autocmd FileType c set cindent formatoptions=tcroq comments=sl:/*,mb:**,elx:*</span>
+<span id="L100" class="LineNr">100 </span><span class="Statement">autocmd</span> <span class="Type">FileType</span> c <span class="Statement">set</span> <span class="PreProc">cindent</span> <span class="PreProc">formatoptions</span>=tcroq <span class="PreProc">comments</span>=sl<span class="Statement">:</span>/*<span class="Statement">,</span>mb<span class="Statement">:</span>**<span class="Statement">,</span>elx<span class="Statement">:</span>*/
+<span id="L101" class="LineNr">101 </span>
+<span id="L102" class="LineNr">102 </span><span class="Comment">&quot; Il est aussi possible de modifier la date et l'heure de modification dans un</span>
+<span id="L103" class="LineNr">103 </span><span class="Comment">&quot; fichier donné , exemple avec un fichier .html :</span>
+<span id="L104" class="LineNr">104 </span><span class="Comment">&quot; (www.davide.blanchet.free.fr/vim/doc/fr62017/autocmd.txt.html, *skeleton*)</span>
+<span id="L105" class="LineNr">105 </span><span class="Comment">&quot; :autocmd BufWritePre, FileWritePre *.html     ks|call DerModif()|'s</span>
+<span id="L106" class="LineNr">106 </span><span class="Comment">&quot; :fun DerModif()</span>
+<span id="L107" class="LineNr">107 </span><span class="Comment">&quot; :     if line(&quot;$&quot;) &gt; 20</span>
+<span id="L108" class="LineNr">108 </span><span class="Comment">&quot; :         let l = 20</span>
+<span id="L109" class="LineNr">109 </span><span class="Comment">&quot; :     else</span>
+<span id="L110" class="LineNr">110 </span><span class="Comment">&quot; :         let l = line(&quot;$&quot;)</span>
+<span id="L111" class="LineNr">111 </span><span class="Comment">&quot; :     endif</span>
+<span id="L112" class="LineNr">112 </span><span class="Comment">&quot; :     exe </span><span class="Constant">&quot;1,&quot;</span><span class="Comment"> . l . &quot;g/Dernière modification : /s/Dernière modification :</span>
+<span id="L113" class="LineNr">113 </span><span class="Comment">&quot; .*/Dernière modification : </span><span class="Constant">&quot; . \ strftime(&quot;</span><span class="Comment">%d %b %Y %X %Z&quot;)</span>
+<span id="L114" class="LineNr">114 </span><span class="Comment">&quot; :endfun</span>
+<span id="L115" class="LineNr">115 </span><span class="Comment">&quot;</span>
+<span id="L116" class="LineNr">116 </span><span class="Comment">&quot; Évidemment à adapter à ses besoins !</span>
+<span id="L117" class="LineNr">117 </span>
+<span id="L118" class="LineNr">118 </span><span class="Comment">&quot; Correcteur orthographique</span>
+<span id="L119" class="LineNr">119 </span><span class="Statement">set</span> <span class="PreProc">spelllang</span>=en<span class="Statement">,</span>fr
+<span id="L120" class="LineNr">120 </span><span class="Statement">set</span> <span class="PreProc">spell</span>
+<span id="L121" class="LineNr">121 </span><span class="Statement">set</span> <span class="PreProc">spellsuggest</span>=5
+<span id="L122" class="LineNr">122 </span>
+<span id="L123" class="LineNr">123 </span><span class="Comment">&quot; Intercepte ^u et ^w en mode insert (supprime la ligne courante et mot avant curseur, sans pouvoir annuler cette annulation, en gros la commande dessous permet de undo alors qu'on ne peut pas undo)</span>
+<span id="L124" class="LineNr">124 </span><span class="Statement">inoremap</span> <span class="Special">&lt;</span><span class="Special">c-u</span><span class="Special">&gt;</span> <span class="Special">&lt;</span><span class="Special">c-g</span><span class="Special">&gt;</span>u<span class="Special">&lt;</span><span class="Special">c-u</span><span class="Special">&gt;</span>
+<span id="L125" class="LineNr">125 </span><span class="Statement">inoremap</span> <span class="Special">&lt;</span><span class="Special">c-w</span><span class="Special">&gt;</span> <span class="Special">&lt;</span><span class="Special">c-g</span><span class="Special">&gt;</span>u<span class="Special">&lt;</span><span class="Special">c-w</span><span class="Special">&gt;</span>
+<span id="L126" class="LineNr">126 </span>
+<span id="L127" class="LineNr">127 </span><span class="Comment">&quot; Format de l'en-tête produit par la sortie de :hardcopy %&lt;%f%h%m%=Page\ %N</span>
+<span id="L128" class="LineNr">128 </span><span class="Comment">&quot; set printheader</span>
+<span id="L129" class="LineNr">129 </span><span class="Comment">&quot; Convertir le fichier en fichier .html pour pouvoir l'imprimer depuis un navigateur (cmd commentées)</span>
+<span id="L130" class="LineNr">130 </span><span class="Comment">&quot; source $VIMRUNTIME/syntax/2html.vim &quot; conversion fichier courant, ouverture fenêtre à enr comd dessous :</span>
+<span id="L131" class="LineNr">131 </span><span class="Comment">&quot; write ~/.vimrc.html</span>
+<span id="L132" class="LineNr">132 </span><span class="Comment">&quot; x-www-browser ~/.vimrc.html &quot; ouverture .vimrc dans un navigateur, imprimer depuis là.</span>
+</pre>
+</body>
+</html>
+<!-- vim: set foldmethod=manual : -->

@@ -51,6 +51,10 @@ endif
 " Options activées personnellement
 " Affichage des numéros de ligne
 set nu
+" Affichage des numéros de ligne relatifs à la position courante
+set relativenumber
+" Met en évidence la position du curseur par une ligne horizontale
+set cursorline
 " Affichage commande en cours
 set showcmd
 " Affichage du mode VIM
@@ -119,6 +123,9 @@ autocmd FileType c set cindent formatoptions=tcroq comments=sl:/*,mb:**,elx:*/
 set spelllang=en,fr
 set spell
 set spellsuggest=5
+" Change highlighting of the misspelling because I can't read mistakes with
+" originals colors and my color theme 
+hi SpellBad ctermfg=015 ctermbg=013
 
 " Intercepte ^u et ^w en mode insert (supprime la ligne courante et mot avant curseur, sans pouvoir annuler cette annulation, en gros la commande dessous permet de undo alors qu'on ne peut pas undo)
 inoremap <c-u> <c-g>u<c-u>

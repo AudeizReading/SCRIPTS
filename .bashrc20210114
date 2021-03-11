@@ -61,7 +61,7 @@ if [ -n "$force_color_prompt" ]; then
 fi
 
 if [ "$color_prompt" = yes ]; then
-    PS1='${debian_chroot:+($debian_chroot)}\[\033[01;32m\]\u@\h\[\033[00m\]:\[\033[01;34m\]\w\[\033[00m\]\$ '
+    PS1='${debian_chroot:+($debian_chroot)}\[\e[38;5;40m\]\u\[\e[38;5;220m\]@\[\e[38;5;197m\]\h\[\e[38;5;97m\][\!]\[\e[00m\]:\[\e[38;5;116m\]\w\n \[\e[38;5;222m\]\D{[%H:%M:%S] - %d/%m/%Y}\n \[\e[00m\$> '
 else
     PS1='${debian_chroot:+($debian_chroot)}\u@\h:\w\$ '
 fi
@@ -89,7 +89,7 @@ if [ -x /usr/bin/dircolors ]; then
 fi
 
 # colored GCC warnings and errors
-#export GCC_COLORS='error=01;31:warning=01;35:note=01;36:caret=01;32:locus=01:quote=01'
+export GCC_COLORS='error=01;31:warning=01;35:note=01;36:caret=01;32:locus=01:quote=01'
 
 # some more ls aliases
 alias ll='ls -alF'
@@ -124,6 +124,25 @@ fi
 
 # Personnal alias
 alias larth='ls -larth'
+alias lsl='ls -l'
+alias lslsubdir='ls -l */*'
+alias diffcolor='diff --color=auto'
+alias gccW='gcc -Wall -Wextra -Werror'
+	# connect to github ssh
+alias cogh='eval "$(ssh-agent -s)"; ssh-add ~/.ssh/gh_id_rsa; ssh -T git@github.com'
+	#changing ls-colors by dircolors
+eval `dircolors ~/.ls_colors`
 
 # Define default editor
+# cowsay below here you are all the files possibles to display with cowsay
+echo "Take a towel and keep calm" | cowsay -f /usr/share/cowsay/cows/dragon-and-cow.cow
+#apt.cow	#bud-frogs.cow	#bunny.cow			#calvin.cow	#cheese.cow	#cock.cow	#cower.cow
+#daemon.cow	#default.cow	#dragon-and-cow.cow	#dragon.cow	#duck.cow	#elephant-in-snake.cow
+#elephant.cow				#eyes.cow			#flaming-sheep.cow		#fox.cow	#ghostbusters.cow
+#gnu.cow	#hellokitty.cow	#kangaroo.cow		#kiss.cow	#koala.cow	#kosh.cow	#luke-koala.cow
+#mech-and-cow.cow			#milk.cow			#moofasa.cow			#moose.cow	#pony-smaller.cow
+#pony.cow	#ren.cow		#sheep.cow			#skeleton.cow			#snowman.cow
+#stegosaurus.cow			#stimpy.cow			#suse.cow				#three-eyes.cow
+#turkey.cow	#turtle.cow		#tux.cow			#unipony-smaller.cow	#unipony.cow
+#vader-koala.cow			#vader.cow			#www.cow
 export EDITOR=vim
